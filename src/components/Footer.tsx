@@ -14,7 +14,7 @@ export default function Footer() {
             <Link href="mailto:deee.xiao@gmail.com" className="text-accent hover:text-primary">
               Email
             </Link>
-            <Link href="https://linkedin.com/in/dixiao" className="text-accent hover:text-primary">
+            <Link href="https://www.linkedin.com/in/di-xiao-916629256/" className="text-accent hover:text-primary">
               LinkedIn
             </Link>
           </div>

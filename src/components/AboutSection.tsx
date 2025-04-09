@@ -91,7 +91,7 @@ export default function AboutSection() {
                 </a>
               </motion.div>
               <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <a href="https://linkedin.com/in/dixiao" className="glyph-button w-full text-center hover-effect">
+                <a href="https://www.linkedin.com/in/di-xiao-916629256/" className="glyph-button w-full text-center hover-effect">
                   LinkedIn
                 </a>
               </motion.div>

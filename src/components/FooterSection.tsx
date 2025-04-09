@@ -113,7 +113,7 @@ export default function FooterSection() {
             <a href="mailto:deee.xiao@gmail.com" className="text-accent hover:text-primary transition-colors hover-effect text-sm">
               deee.xiao@gmail.com
             </a>
-            <a href="https://linkedin.com/in/dixiao" className="text-accent hover:text-primary transition-colors hover-effect text-sm">
+            <a href="https://www.linkedin.com/in/di-xiao-916629256/" className="text-accent hover:text-primary transition-colors hover-effect text-sm">
               LinkedIn
             </a>
           </div>

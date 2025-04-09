@@ -218,7 +218,7 @@ export default function GlyphNav() {
                   <a href="mailto:deee.xiao@gmail.com" className="text-accent hover:text-primary transition-colors hover-effect">
                     Email
                   </a>
-                  <a href="https://linkedin.com/in/dixiao" className="text-accent hover:text-primary transition-colors hover-effect">
+                  <a href="https://www.linkedin.com/in/di-xiao-916629256/" className="text-accent hover:text-primary transition-colors hover-effect">
                     LinkedIn
                   </a>
                 </motion.div>
