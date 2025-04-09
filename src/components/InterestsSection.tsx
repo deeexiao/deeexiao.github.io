@@ -21,6 +21,7 @@ const interests: Interest[] = [
     title: "🍨 Cooking",
     imagePlaceholder: "Cooking Image Placeholder",
     imageUrl: "https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/61c5cc42-d216-437f-9552-5e647d99d34f/IMG_0263/w=640,quality=90,fit=scale-down",
+    link: "/cooking"
   },
   {
     id: "traveling",

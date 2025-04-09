@@ -47,13 +47,14 @@ export default function OtherProjects({ currentProjectId, isDarkMode = false }: 
     <section className={`py-16 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
       <div className="container mx-auto px-4">
         <h2 className={`text-3xl font-bold mb-8 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Other Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="flex flex-nowrap gap-6 mb-12 overflow-x-auto pb-4">
           {otherProjects.map((project, index) => (
             <motion.div
               key={project.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="flex-1 min-w-[300px]"
             >
               <Link 
                 href={project.link}
