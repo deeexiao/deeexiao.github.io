@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
+import GitHubPagesLink from './GitHubPagesLink';
 import { usePathname } from 'next/navigation';
 
 export default function GlyphNav() {
@@ -134,7 +134,7 @@ export default function GlyphNav() {
         }}
       >
         <div className="container mx-auto h-full px-4 flex justify-between items-center">
-          <Link href="/" className="hover-effect">
+          <GitHubPagesLink href="/" className="hover-effect">
             <motion.div 
               className="text-xl md:text-2xl font-bold"
               initial={{ opacity: 0 }}
@@ -143,21 +143,21 @@ export default function GlyphNav() {
             >
               DI<span className="text-accent">.</span>
             </motion.div>
-          </Link>
+          </GitHubPagesLink>
 
           <div className="flex items-center gap-6">
             <nav className="hidden md:block">
               <ul className="flex gap-8">
                 {navLinks.map((link) => (
                   <li key={link.id}>
-                    <Link 
+                    <GitHubPagesLink 
                       href={link.href}
                       className="text-foreground hover:text-primary transition-colors duration-300 relative group hover-effect"
                       onClick={() => handleNavClick(link.id)}
                     >
                       {link.label}
                       <span className="absolute -bottom-1 left-0 w-0 h-px bg-primary transition-all duration-300 group-hover:w-full"></span>
-                    </Link>
+                    </GitHubPagesLink>
                   </li>
                 ))}
               </ul>
@@ -195,13 +195,13 @@ export default function GlyphNav() {
                         variants={linkVariants}
                         key={link.id}
                       >
-                        <Link 
+                        <GitHubPagesLink 
                           href={link.href}
                           className="text-4xl md:text-7xl font-bold gradient-text hover-effect"
                           onClick={() => handleNavClick(link.id)}
                         >
                           {link.label}
-                        </Link>
+                        </GitHubPagesLink>
                       </motion.li>
                     ))}
                   </ul>

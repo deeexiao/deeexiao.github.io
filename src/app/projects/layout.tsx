@@ -2,7 +2,7 @@
 
 import GlyphNav from '@/components/GlyphNav';
 import FooterSection from '@/components/FooterSection';
-import Link from 'next/link';
+import GitHubPagesLink from '@/components/GitHubPagesLink';
 import { usePathname } from 'next/navigation';
 
 export default function ProjectLayout({
@@ -16,7 +16,7 @@ export default function ProjectLayout({
   const backButton = (
     <div className={`w-full ${isMemoryProject ? 'bg-black' : 'bg-white'} py-6 mt-24`}>
       <div className="container mx-auto px-4">
-        <Link 
+        <GitHubPagesLink 
           href="/#projects" 
           className={`flex items-center gap-2 ${
             isMemoryProject 
@@ -28,7 +28,7 @@ export default function ProjectLayout({
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
           <span>Back to Portfolio</span>
-        </Link>
+        </GitHubPagesLink>
       </div>
     </div>
   );

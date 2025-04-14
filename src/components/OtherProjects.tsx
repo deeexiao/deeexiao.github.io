@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import GitHubPagesLink from './GitHubPagesLink';
 import { motion } from 'framer-motion';
 
 interface Project {
@@ -56,7 +56,7 @@ export default function OtherProjects({ currentProjectId, isDarkMode = false }: 
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="flex-1 min-w-[300px]"
             >
-              <Link 
+              <GitHubPagesLink 
                 href={project.link}
                 className="block group"
               >
@@ -74,13 +74,13 @@ export default function OtherProjects({ currentProjectId, isDarkMode = false }: 
                 <p className={`text-sm ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                   {project.description}
                 </p>
-              </Link>
+              </GitHubPagesLink>
             </motion.div>
           ))}
         </div>
         
         <div className="text-center">
-          <Link 
+          <GitHubPagesLink 
             href="/#projects"
             className={`inline-flex items-center gap-2 text-sm font-medium ${
               isDarkMode 
@@ -92,7 +92,7 @@ export default function OtherProjects({ currentProjectId, isDarkMode = false }: 
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M12 5l7 7-7 7"/>
             </svg>
-          </Link>
+          </GitHubPagesLink>
         </div>
       </div>
     </section>

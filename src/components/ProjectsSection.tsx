@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
+import GitHubPagesLink from "./GitHubPagesLink";
 import { useState } from 'react';
 import Image from "next/image";
 
@@ -139,9 +139,9 @@ export default function ProjectsSection() {
           <h2 className="heading-lg gradient-text mb-6">UX/UI Design</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {uxProjects.map((project) => (
-              <Link href={project.link} key={project.id} style={{ position: 'relative', zIndex: 30, pointerEvents: 'auto', height: '100%', display: 'block' }}>
+              <GitHubPagesLink href={project.link} key={project.id} className="relative z-30" style={{ pointerEvents: 'auto', height: '100%', display: 'block' }}>
                 <ProjectCard project={project} />
-              </Link>
+              </GitHubPagesLink>
             ))}
           </div>
         </motion.div>
@@ -160,9 +160,9 @@ export default function ProjectsSection() {
           <h2 className="heading-lg gradient-text mb-6">Visual Art</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {visualProjects.map((project) => (
-              <Link href={project.link} key={project.id} style={{ position: 'relative', zIndex: 30, pointerEvents: 'auto', height: '100%', display: 'block' }}>
+              <GitHubPagesLink href={project.link} key={project.id} className="relative z-30" style={{ pointerEvents: 'auto', height: '100%', display: 'block' }}>
                 <ProjectCard project={project} />
-              </Link>
+              </GitHubPagesLink>
             ))}
           </div>
         </motion.div>
