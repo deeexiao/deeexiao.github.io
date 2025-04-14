@@ -1,5 +1,10 @@
 "use client";
 
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { useState } from 'react';
+import Image from "next/image";
+
 interface Project {
   id: string;
   title: string;
@@ -17,7 +22,7 @@ const uxProjects: Project[] = [
     title: 'Cai Yi —「采衣」',
     subtitle: 'Cai Yi —「采衣」',
     description: '"Cai Yi" is an integrated social platform and online shop based on HanFu (Chinese traditional clothes).',
-    tags: ['UX/UI', 'APP'],
+    tags: ['UX/UI', 'APP Design', 'Social Platform', 'E-commerce'],
     imagePlaceholder: 'Cai Yi Project Image',
     imageUrl: 'https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/0814b548-30be-44c7-a2fb-9f58c1c9d49a/1/w=1920,quality=90,fit=scale-down',
     link: '/projects/caiyi',
@@ -27,7 +32,7 @@ const uxProjects: Project[] = [
     title: 'Memory —「记艺」',
     subtitle: 'Memory —「记艺」',
     description: 'An supporting app for art students in both high school and university.',
-    tags: ['UX Research', 'UX/UI', 'APP'],
+    tags: ['UX Research', 'UX/UI', 'APP Design', 'Educational'],
     imagePlaceholder: 'Memory Project Image',
     imageUrl: 'https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/2841dd66-3e08-45e9-b6d5-2c726486a535/1/w=1920,quality=90,fit=scale-down',
     link: '/projects/memory',
@@ -40,7 +45,7 @@ const visualProjects: Project[] = [
     title: 'Daily Collect — Di\'s Photo Gallery',
     subtitle: 'Daily Collect — Di\'s Photo Gallery',
     description: 'People may forget, but photos remember.',
-    tags: ['Photography'],
+    tags: ['Photography', 'Visual Art', 'Documentary'],
     imagePlaceholder: 'Photo Gallery Image',
     imageUrl: 'https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/5010fd78-d49c-497a-8653-d5445869c10c/Group_1000000941/w=1920,quality=90,fit=scale-down',
     link: '/projects/daily-collect',
@@ -58,90 +63,202 @@ const visualProjects: Project[] = [
 ];
 
 export default function ProjectsSection() {
-  return (
-    <div>
-      <section id="projects" className="section pt-12">
-        <div className="container">
-          <h1 className="text-4xl font-bold mb-8">🌓 UX/UI Design</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {uxProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
-        </div>
-      </section>
+  const [isExpanded, setIsExpanded] = useState(false);
+  
+  const fadeInUpVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6
+      }
+    }
+  };
 
-      <section className="section pt-12">
-        <div className="container">
-          <h1 className="text-4xl font-bold mb-8">🌔 Visual Art</h1>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {visualProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+  // 工作经历数据
+  const workExperiences = [
+    {
+      id: "memoon",
+      title: "Freelancer at MEMOON",
+      role: "Founder & Part-time Teacher (Problem-based learning)",
+      period: "Apr 2023 - Jan 2024"
+    },
+    {
+      id: "hanfu",
+      title: "UX Design — Hanfu project (APP)",
+      role: "UX Design (Part-time project)",
+      period: "Sep 2019 - Jan 2021"
+    },
+    {
+      id: "weplanet",
+      title: "VI Internship —— WePlanet （童行）",
+      role: "VI Design & Photograph",
+      period: "Mar 2017 - Aug 2017"
+    },
+    {
+      id: "pfizer",
+      title: "Service design project —— Leruimei/Pfizer（乐瑞美/辉瑞）",
+      role: "UX Research & Service Design & Event Planning",
+      period: "Sep 2016 - Oct 2017"
+    },
+    {
+      id: "aurora",
+      title: "Co-working space project —— Aurora（震旦）",
+      role: "UX Research & Strategy",
+      period: "Jun 2016 - Sep 2016"
+    },
+    {
+      id: "duwei",
+      title: "UI internship —— Duwei Tech. （度维科技）",
+      role: "Visual Design",
+      period: "Jan 2016 - Jun 2016"
+    },
+  ];
+
+  // 显示前2个工作经历作为预览
+  const previewWorkExperiences = workExperiences.slice(0, 2);
+
+  const otherProjects = [
+    "UI Design — Web3 Gamefi project (APP)",
+    "Volunteer VI designer — Sweet Potato Chinese Music (Logo/Posters)",
+    "Course Researcher — Online PBL APP for Children"
+  ];
+
+  return (
+    <section id="projects" className="py-0 pt-24 relative overflow-hidden">
+      <div className="container mx-auto px-4 overflow-visible">
+        {/* UX/UI Projects */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUpVariants}
+          className="pb-0 mb-0"
+        >
+          <h2 className="heading-lg gradient-text mb-6">UX/UI Design</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+            {uxProjects.map((project) => (
+              <Link href={project.link} key={project.id} style={{ position: 'relative', zIndex: 30, pointerEvents: 'auto', height: '100%', display: 'block' }}>
+                <ProjectCard project={project} />
+              </Link>
             ))}
           </div>
-        </div>
-      </section>
-    </div>
+        </motion.div>
+
+        {/* 分割线 */}
+        <div className="w-screen h-px bg-white/10 relative left-1/2 transform -translate-x-1/2 mt-32 mb-8"></div>
+
+        {/* Visual Projects */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUpVariants}
+          className="pt-24 pb-0 mb-0"
+        >
+          <h2 className="heading-lg gradient-text mb-6">Visual Art</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+            {visualProjects.map((project) => (
+              <Link href={project.link} key={project.id} style={{ position: 'relative', zIndex: 30, pointerEvents: 'auto', height: '100%', display: 'block' }}>
+                <ProjectCard project={project} />
+              </Link>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* 分割线 */}
+        <div className="w-screen h-px bg-white/10 relative left-1/2 transform -translate-x-1/2 mt-32 mb-8"></div>
+
+        {/* Working/Projects */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fadeInUpVariants}
+          className="pt-24 pb-0 mb-0"
+        >
+          <h2 className="heading-lg gradient-text mb-6">Working / Projects</h2>
+          <div className="space-y-6">
+            {/* 始终显示预览内容 */}
+            {(isExpanded ? workExperiences : previewWorkExperiences).map((work) => (
+              <div key={work.id} className="bg-card p-6 pb-10 rounded-lg">
+                <h3 className="text-xl font-bold mb-3 text-white leading-loose line-clamp-none">{work.title}</h3>
+                <p className="text-accent mb-3 leading-loose">{work.role}</p>
+                <p className="text-sm text-accent-light leading-loose">{work.period}</p>
+              </div>
+            ))}
+            
+            {/* Other part-time projects 仅在展开时显示 */}
+            {isExpanded && (
+              <div className="bg-card p-6 pb-10 rounded-lg">
+                <h3 className="text-xl font-bold mb-4 text-white leading-loose line-clamp-none">Other part-time projects</h3>
+                <div className="space-y-4">
+                  {otherProjects.map((project, index) => (
+                    <p key={index} className="text-accent leading-loose pb-2 line-clamp-none">{project}</p>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* 展开/收起按钮 */}
+          <motion.div 
+            className="mt-6 mb-0 flex justify-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUpVariants}
+          >
+            <button
+              onClick={() => setIsExpanded(!isExpanded)}
+              className="glyph-button hover-effect"
+              style={{ position: 'relative', zIndex: 20, pointerEvents: 'auto' }}
+            >
+              {isExpanded ? 'Show Less' : 'Show More'}
+            </button>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
   );
 }
 
 function ProjectCard({ project }: { project: Project }) {
-  // 根据项目ID确定不同的图片定位
-  const getImagePosition = (id: string) => {
-    switch(id) {
-      case 'caiyi':
-        return 'center 15%'; // 将第一张图片更往下移动，显示上面的粉色部分
-      case 'memory':
-        return 'center 70%'; // 将第二张图片向上移动
-      default:
-        return 'center center';
-    }
-  };
-
   return (
-    <a 
-      href={project.link}
-      className="project-card project-link overflow-hidden rounded-lg flex flex-col h-full transition-all duration-300 hover:opacity-95"
+    <motion.div
+      whileHover={{ scale: 1.005, boxShadow: '0 0 30px rgba(0,0,0,0.2)' }}
+      whileTap={{ scale: 0.995 }}
+      className="relative overflow-hidden rounded-2xl bg-secondary transition-all duration-300 hover:shadow-xl h-full flex flex-col"
     >
-      <div className="relative w-full aspect-video mb-4 bg-secondary rounded overflow-hidden">
-        {project.imageUrl ? (
-          <div className="relative w-full h-full">
-            <img 
-              src={project.imageUrl} 
-              alt={project.title}
-              className="w-full h-full object-cover"
-              loading="lazy"
-              style={{ objectPosition: getImagePosition(project.id) }}
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                const fallback = e.currentTarget.parentElement?.parentElement?.querySelector('.fallback-image');
-                if (fallback) {
-                  fallback.classList.remove('hidden');
-                }
-              }}
-            />
-            <div className="absolute inset-0 bg-black opacity-30"></div>
-          </div>
-        ) : (
-          <div className="fallback-image absolute inset-0 flex flex-col items-center justify-center text-accent p-4">
-            <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-            <p className="text-center">{project.imagePlaceholder}</p>
-          </div>
-        )}
+      <div className="aspect-[16/10] w-full overflow-hidden">
+        <img
+          src={project.imageUrl}
+          alt={project.title}
+          className={`w-full h-full object-cover ${
+            project.id === 'caiyi' ? 'object-[center_15%]' : 
+            project.id === 'memory' ? 'object-[center_120%]' : 
+            'object-center'
+          }`}
+        />
+        <div className={`absolute inset-0 bg-black ${
+          project.id === 'caiyi' ? 'opacity-35' : 'opacity-20'
+        }`}></div>
       </div>
-      <div>
-        <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-        <p className="text-accent mb-3 text-sm">{project.description}</p>
-        <div className="flex flex-wrap mt-2">
-          {project.tags.map((tag) => (
-            <span key={tag} className="skill-tag">
+      <div className="p-5 py-6 flex flex-col flex-grow min-h-[160px] justify-start bg-secondary">
+        <h3 className="text-xl font-bold mb-2 text-white leading-relaxed">{project.title}</h3>
+        <div className="flex flex-wrap gap-2 mb-2">
+          {project.tags.map((tag, index) => (
+            <span
+              key={index}
+              className="px-3 py-1 text-sm rounded-full bg-gray-200/70 text-gray-800"
+            >
               {tag}
             </span>
           ))}
         </div>
+        <p className="text-gray-300 line-clamp-2">{project.description}</p>
       </div>
-    </a>
+    </motion.div>
   );
-} 
+}

@@ -56,9 +56,9 @@ export default function CookingPage() {
         className="container mx-auto px-4 mb-12"
       >
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Cooking Journey</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">PORTFOLIO ——DI XIAO</h1>
           <p className="text-xl text-gray-700 mb-8">
-            A collection of my culinary adventures and food creations
+            A collection of my design work and creative endeavors.
           </p>
           
           <div className="flex flex-wrap gap-4 mb-8">

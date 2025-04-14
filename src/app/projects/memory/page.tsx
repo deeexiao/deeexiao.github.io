@@ -71,7 +71,7 @@ export default function MemoryProject() {
           
           <div className="flex flex-wrap gap-4 mb-8">
             <span className="skill-tag bg-gray-800 text-gray-200">UX Research</span>
-            <span className="skill-tag bg-gray-800 text-gray-200">UX/UI</span>
+            <span className="skill-tag bg-gray-800 text-gray-200">UX/UI Design</span>
             <span className="skill-tag bg-gray-800 text-gray-200">APP Design</span>
             <span className="skill-tag bg-gray-800 text-gray-200">Educational</span>
           </div>

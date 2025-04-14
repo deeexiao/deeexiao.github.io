@@ -90,7 +90,7 @@ export default function CaiyiProject() {
           </p>
           
           <div className="flex flex-wrap gap-4 mb-8">
-            <span className="skill-tag bg-gray-200 text-gray-800">UX/UI</span>
+            <span className="skill-tag bg-gray-200 text-gray-800">UX/UI Design</span>
             <span className="skill-tag bg-gray-200 text-gray-800">APP Design</span>
             <span className="skill-tag bg-gray-200 text-gray-800">Social Platform</span>
             <span className="skill-tag bg-gray-200 text-gray-800">E-commerce</span>

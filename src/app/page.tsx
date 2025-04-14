@@ -5,7 +5,6 @@ import GlyphNav from '@/components/GlyphNav';
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
 import ProjectsSection from '@/components/ProjectsSection';
-import ExperienceSection from '@/components/ExperienceSection';
 import EducationSection from '@/components/EducationSection';
 import InterestsSection from '@/components/InterestsSection';
 import FooterSection from '@/components/FooterSection';
@@ -47,11 +46,15 @@ export default function Home() {
       <GlyphNav />
       <main className="flex-grow z-10 relative">
         <HeroSection />
+        <div className="w-full h-px bg-white/10 relative mx-[-50vw] left-[50%] right-[50%] mt-32 mb-8"></div>
         <AboutSection />
+        <div className="w-full h-px bg-white/10 relative mx-[-50vw] left-[50%] right-[50%] mt-32 mb-8"></div>
         <ProjectsSection />
-        <ExperienceSection />
+        <div className="w-full h-px bg-white/10 relative mx-[-50vw] left-[50%] right-[50%] mt-32 mb-8"></div>
         <EducationSection />
+        <div className="w-full h-px bg-white/10 relative mx-[-50vw] left-[50%] right-[50%] mt-32 mb-8"></div>
         <InterestsSection />
+        <div className="w-full h-px bg-white/10 relative mx-[-50vw] left-[50%] right-[50%] mt-32 mb-8"></div>
       </main>
       <FooterSection />
     </div>

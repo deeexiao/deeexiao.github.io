@@ -36,7 +36,7 @@ export default function HeroSection() {
   }, []);
   
   return (
-    <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section ref={containerRef} className="relative h-screen flex items-center justify-center overflow-hidden pb-0 mb-0">
       <div className="container mx-auto px-4 py-20 mt-20 z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -59,7 +59,7 @@ export default function HeroSection() {
               delay: 0.6
             }}
           >
-            DI XIAO<br />PORTFOLIO
+            DI XIAO <br />PORTFOLIO
           </motion.h1>
         </div>
         

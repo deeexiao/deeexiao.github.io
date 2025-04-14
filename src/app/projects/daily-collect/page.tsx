@@ -130,11 +130,11 @@ export default function DailyCollectProject() {
           transition={{ duration: 0.8, delay: 0.1 * (index + 1) }}
           className="w-full mb-16"
         >
-          <div className="overflow-hidden">
+          <div className={`overflow-hidden ${index === 3 ? 'max-w-4xl mx-auto' : ''}`}>
             <img 
               src={image.url} 
               alt={image.alt}
-              className="w-full h-auto object-contain"
+              className={`w-full h-auto object-contain ${index === 4 ? 'aspect-[21/9] object-cover' : ''}`}
             />
           </div>
           <div className="container mx-auto px-4 mt-4">

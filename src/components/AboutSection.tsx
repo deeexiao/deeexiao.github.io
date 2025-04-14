@@ -41,13 +41,13 @@ export default function AboutSection() {
   ];
   
   return (
-    <section id="about" className="py-24 md:py-32 relative overflow-hidden">
+    <section id="about" className="py-0 pt-24 relative overflow-hidden">
       <div className="container mx-auto px-4">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="mb-16"
+          className="pb-0 mb-0"
           variants={fadeInUpVariants}
           custom={0}
         >
@@ -57,10 +57,9 @@ export default function AboutSection() {
             </svg>
             About Me
           </h2>
-          <div className="h-0.5 w-24 bg-primary/30 mb-10"></div>
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start mb-0">
           <motion.div 
             className="md:col-span-5 lg:col-span-4"
             initial="hidden"
@@ -100,7 +99,7 @@ export default function AboutSection() {
           
           <div className="md:col-span-7 lg:col-span-8">
             <motion.div 
-              className="glyph-card mb-10"
+              className="glyph-card mb-10 bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -115,7 +114,7 @@ export default function AboutSection() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <motion.div 
-                className="glyph-card"
+                className="glyph-card bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
@@ -133,7 +132,7 @@ export default function AboutSection() {
               </motion.div>
               
               <motion.div 
-                className="glyph-card"
+                className="glyph-card bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}
@@ -151,7 +150,7 @@ export default function AboutSection() {
               </motion.div>
               
               <motion.div 
-                className="glyph-card"
+                className="glyph-card bg-gray-100/50 dark:bg-gray-800/50 backdrop-blur-sm"
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-100px" }}

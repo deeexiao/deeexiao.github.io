@@ -17,78 +17,131 @@ export default function FooterSection() {
     }
   };
   
+  const navigateToSection = (id: string) => {
+    if (typeof window !== 'undefined') {
+      window.location.href = `/#${id}`;
+    }
+  };
+  
   return (
-    <footer className="py-16 md:py-24 border-t relative overflow-hidden" style={{ borderColor: 'rgba(var(--secondary-rgb), 0.2)' }}>
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+    <footer className="py-16 md:py-20 relative overflow-hidden z-20">
+      <div className="container mx-auto px-4 relative z-20">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 relative z-20">
           <motion.div 
-            className="md:col-span-6"
+            className="md:col-span-6 relative z-20"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={fadeInUpVariants}
+            style={{ position: 'relative', zIndex: 20, pointerEvents: 'auto' }}
           >
             <h2 className="heading-lg gradient-text mb-6">Let&apos;s Connect</h2>
             <p className="text-accent max-w-lg mb-8">
               I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
             </p>
             
-            <motion.div 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block"
-            >
-              <a href="mailto:deee.xiao@gmail.com" className="glyph-button hover-effect">
-                Get In Touch
-              </a>
-            </motion.div>
+            <div className="flex flex-col sm:flex-row gap-4">
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block"
+                style={{ position: 'relative', zIndex: 20 }}
+              >
+                <a 
+                  href="mailto:deee.xiao@gmail.com" 
+                  className="glyph-button w-full text-center hover-effect"
+                  style={{ pointerEvents: 'auto' }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.location.href = "mailto:deee.xiao@gmail.com";
+                  }}
+                >
+                  Contact Me
+                </a>
+              </motion.div>
+              <motion.div 
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-block"
+                style={{ position: 'relative', zIndex: 20 }}
+              >
+                <a 
+                  href="https://www.linkedin.com/in/di-xiao-916629256/" 
+                  className="glyph-button w-full text-center hover-effect"
+                  style={{ pointerEvents: 'auto' }}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open("https://www.linkedin.com/in/di-xiao-916629256/", "_blank");
+                  }}
+                >
+                  LinkedIn
+                </a>
+              </motion.div>
+            </div>
           </motion.div>
           
           <motion.div 
             className="md:col-span-6 md:flex md:justify-end"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
+            viewport={{ once: true }}
             variants={fadeInUpVariants}
           >
-            <div className="max-w-sm">
+            <div className="max-w-sm" style={{ position: 'relative', zIndex: 20 }}>
               <h3 className="heading-sm mb-6">Quick Links</h3>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <ul className="space-y-3">
-                    <li>
-                      <Link href="#about" className="text-accent hover:text-primary transition-colors hover-effect">
+                    <li style={{ position: 'relative', zIndex: 20 }}>
+                      <button 
+                        onClick={() => navigateToSection('about')} 
+                        className="text-accent hover:text-primary transition-colors hover-effect cursor-pointer bg-transparent border-0 p-0"
+                        style={{ pointerEvents: 'auto' }}
+                      >
                         About
-                      </Link>
+                      </button>
                     </li>
-                    <li>
-                      <Link href="#projects" className="text-accent hover:text-primary transition-colors hover-effect">
+                    <li style={{ position: 'relative', zIndex: 20 }}>
+                      <button 
+                        onClick={() => navigateToSection('projects')} 
+                        className="text-accent hover:text-primary transition-colors hover-effect cursor-pointer bg-transparent border-0 p-0"
+                        style={{ pointerEvents: 'auto' }}
+                      >
                         Projects
-                      </Link>
+                      </button>
                     </li>
-                    <li>
-                      <Link href="#experience" className="text-accent hover:text-primary transition-colors hover-effect">
-                        Experience
-                      </Link>
+                    <li style={{ position: 'relative', zIndex: 20 }}>
+                      <button 
+                        onClick={() => navigateToSection('education')} 
+                        className="text-accent hover:text-primary transition-colors hover-effect cursor-pointer bg-transparent border-0 p-0"
+                        style={{ pointerEvents: 'auto' }}
+                      >
+                        Education
+                      </button>
                     </li>
                   </ul>
                 </div>
                 <div>
                   <ul className="space-y-3">
-                    <li>
-                      <Link href="#education" className="text-accent hover:text-primary transition-colors hover-effect">
-                        Education
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#interests" className="text-accent hover:text-primary transition-colors hover-effect">
+                    <li style={{ position: 'relative', zIndex: 20 }}>
+                      <button 
+                        onClick={() => navigateToSection('interests')} 
+                        className="text-accent hover:text-primary transition-colors hover-effect cursor-pointer bg-transparent border-0 p-0"
+                        style={{ pointerEvents: 'auto' }}
+                      >
                         Interests
-                      </Link>
+                      </button>
                     </li>
-                    <li>
-                      <a href="mailto:deee.xiao@gmail.com" className="text-accent hover:text-primary transition-colors hover-effect">
+                    <li style={{ position: 'relative', zIndex: 20 }}>
+                      <button 
+                        onClick={() => {
+                          window.location.href = "mailto:deee.xiao@gmail.com";
+                        }}
+                        className="text-accent hover:text-primary transition-colors hover-effect cursor-pointer bg-transparent border-0 p-0"
+                        style={{ pointerEvents: 'auto' }}
+                      >
                         Contact
-                      </a>
+                      </button>
                     </li>
                   </ul>
                 </div>
@@ -108,15 +161,6 @@ export default function FooterSection() {
           <p className="text-accent text-sm mb-4 md:mb-0">
             © {currentYear} Di Xiao. All rights reserved.
           </p>
-          
-          <div className="flex gap-6">
-            <a href="mailto:deee.xiao@gmail.com" className="text-accent hover:text-primary transition-colors hover-effect text-sm">
-              deee.xiao@gmail.com
-            </a>
-            <a href="https://www.linkedin.com/in/di-xiao-916629256/" className="text-accent hover:text-primary transition-colors hover-effect text-sm">
-              LinkedIn
-            </a>
-          </div>
         </motion.div>
       </div>
     </footer>

@@ -253,7 +253,11 @@ export default function FluidBackground() {
   }, [dimensions]);
 
   return (
-    <div ref={containerRef} className="absolute inset-0 overflow-hidden">
+    <div 
+      ref={containerRef} 
+      className="fixed inset-0 w-full h-full pointer-events-none"
+      style={{ zIndex: 1 }}
+    >
       <div className="absolute inset-0 bg-[#000000] z-0">
         <div className="absolute inset-0 bg-gradient-radial from-[#060818] to-[#000000] opacity-80"></div>
       </div>
