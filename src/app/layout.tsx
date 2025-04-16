@@ -6,6 +6,7 @@ import SmoothScroll from "@/components/SmoothScroll";
 
 const inter = Inter({
   subsets: ["latin"],
+  display: 'swap',
   variable: "--font-inter",
 });
 

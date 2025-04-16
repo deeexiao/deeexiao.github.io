@@ -6,7 +6,8 @@ const nextConfig = {
     domains: ['assets.super.so', 'images.spr.so'],
   },
   trailingSlash: true,
-  srcDir: 'src',
+  basePath: '',
+  assetPrefix: '',
 }
 
 module.exports = nextConfig 
