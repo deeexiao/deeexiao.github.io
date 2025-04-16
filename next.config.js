@@ -6,7 +6,11 @@ const nextConfig = {
     domains: ['assets.super.so', 'images.spr.so'],
   },
   trailingSlash: true,
-  // Disable source maps and other development features
+  // Ensure TypeScript is properly compiled
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  // Disable source maps in production
   productionBrowserSourceMaps: false,
   // Configure security headers
   async headers() {
