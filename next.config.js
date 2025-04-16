@@ -6,8 +6,22 @@ const nextConfig = {
     domains: ['assets.super.so', 'images.spr.so'],
   },
   trailingSlash: true,
-  basePath: '/deeexiao.github.io',
-  assetPrefix: '/deeexiao.github.io/',
+  // Disable source maps and other development features
+  productionBrowserSourceMaps: false,
+  // Configure security headers
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://assets.super.so https://images.spr.so;"
+          }
+        ],
+      },
+    ]
+  },
 }
 
 module.exports = nextConfig 
