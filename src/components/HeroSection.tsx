@@ -50,7 +50,7 @@ export default function HeroSection() {
         <div className="overflow-hidden">
           <motion.h1 
             ref={titleRef}
-            className="heading-xl text-center gradient-text mb-4 py-4"
+            className="heading-xl gradient-text text-center mb-4 py-4"
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ 

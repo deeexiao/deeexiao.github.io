@@ -15,7 +15,7 @@
   --secondary-rgb: 34, 34, 34;
   --muted: #191919;
   --muted-rgb: 25, 25, 25;
-  --font-main: var(--font-inter), system-ui, sans-serif;
+  --font-main: 'Inter', sans-serif;
 }
 
 * {
@@ -74,19 +74,26 @@ body {
 }
 
 .heading-xl {
-  @apply text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter;
+  @apply text-5xl md:text-7xl lg:text-8xl;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
 }
 
 .heading-lg {
   @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+  font-family: 'Inter', sans-serif;
 }
 
 .heading-md {
   @apply text-3xl md:text-4xl font-semibold;
+  font-family: 'Inter', sans-serif;
 }
 
 .heading-sm {
   @apply text-xl md:text-2xl font-medium;
+  font-family: 'Inter', sans-serif;
 }
 
 .container {
@@ -113,7 +120,12 @@ body {
 }
 
 .gradient-text {
-  @apply text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-300 to-white;
+  @apply text-transparent bg-clip-text;
+  background-image: linear-gradient(to right, #ffffff, #e5e7eb, #ffffff);
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.05em;
+  line-height: 1;
 }
 
 .bio-text {
