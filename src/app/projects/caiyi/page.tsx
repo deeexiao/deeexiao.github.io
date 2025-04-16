@@ -85,9 +85,13 @@ export default function CaiyiProject() {
       >
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">Cai Yi — 「采衣」</h1>
-          <p className="text-xl text-gray-700 mb-8">
-            An integrated social and e-commerce platform based on HanFu (Chinese traditional clothing) culture
-          </p>
+          
+          {/* Brief Summary section */}
+          <div className="mb-8">
+            <p className="text-xl text-gray-700">
+              A design case showcasing the process from user research and needs analysis to high-fidelity prototypes and design system for a HanFu (traditional Chinese clothing) enthusiasts platform.
+            </p>
+          </div>
           
           <div className="flex flex-wrap gap-4 mb-8">
             <span className="skill-tag bg-gray-200 text-gray-800">UX/UI Design</span>
@@ -96,22 +100,17 @@ export default function CaiyiProject() {
             <span className="skill-tag bg-gray-200 text-gray-800">E-commerce</span>
           </div>
           
-          <div className="prose max-w-none">
-            <p className="text-lg text-gray-700">
-              "Cai Yi" is a custom app designed for HanFu enthusiasts, integrating social and e-commerce functionalities to address various challenges users face in styling, purchasing, and community engagement around traditional Chinese clothing. This project showcases a complete design thinking process from user research and needs analysis to high-fidelity prototypes and design system construction.
-            </p>
-          </div>
         </div>
       </motion.div>
       
-      {/* Project overview image */}
+      {/* 主封面图片 - 全宽显示 */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="container mx-auto px-4 mb-16"
+        className="container mx-auto px-4 mb-12"
       >
-        <div className="rounded-xl overflow-hidden">
+        <div className="max-w-6xl mx-auto rounded-xl overflow-hidden">
           <img 
             src={projectImages[0].url} 
             alt={projectImages[0].alt}
@@ -120,76 +119,229 @@ export default function CaiyiProject() {
         </div>
       </motion.div>
 
-      {/* Design process */}
+      {/* 项目介绍和我的角色 - 两列布局 */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.3 }}
-        className="container mx-auto px-4 mb-16"
+        className="container mx-auto px-4 mb-12"
       >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-gray-900">Design Process</h2>
-          <div className="rounded-xl overflow-hidden mb-8">
-            <img 
-              src={projectImages[1].url} 
-              alt={projectImages[1].alt}
-              className="w-full h-auto object-contain"
-            />
-          </div>
-          <div className="prose max-w-none">
-            <p className="text-gray-700">
-              This project follows a comprehensive design thinking process, starting with user research, moving through information architecture and wireframing, to high-fidelity prototypes, and culminating in the construction of a design system. Each stage emphasized collecting and analyzing user feedback to ensure the product effectively addresses the pain points of the target user group.
-            </p>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+            {/* 左列 - 项目介绍文本和我的角色 */}
+            <div className="md:col-span-5">
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">Project Introduction——Cai Yi【采衣】</h2>
+              <div className="prose max-w-none mb-8">
+                <p className="text-lg text-gray-700">
+                  Hanfu is symbolic of the Han ethnicity. Due to complex historical reasons, there was a discontinuity in the tradition of Hanfu through the ages. Now, with a resurgence and a quest to reconnect with our origins, the Hanfu industry is experiencing a revival.
+                </p>
+                <p className="text-lg text-gray-700 mt-4">
+                  From 2015 to 2021, the annual turnover of the Hanfu industry saw a rapid increase from 190 million yuan to more than 10 billion yuan.
+                </p>
+              </div>
+              
+              {/* 我的角色 - 现在放在左侧列项目介绍下方 */}
+              <h3 className="text-xl font-bold mb-4 flex items-center text-gray-900">
+                <span className="mr-2">👩🏻‍💻</span>
+                My Role
+              </h3>
+              <div className="prose max-w-none">
+                <p className="text-lg font-semibold text-gray-800 mb-2">UX Lead of a remote team</p>
+                <ol className="list-decimal pl-6 space-y-2 text-gray-700">
+                  <li>Consumer-side UX design</li>
+                  <li>UX research</li>
+                  <li>Architectural design for merchants regarding the Inventory Management System (IMS).</li>
+                </ol>
+              </div>
+            </div>
+
+            {/* 右列 - 我做了什么 + 设计过程图 */}
+            <div className="md:col-span-7">
+              <div className="prose max-w-none mb-6">
+                <p className="text-lg font-semibold text-gray-800 mb-2">What did I do?</p>
+                <p className="text-lg text-gray-700">
+                  As the UX Lead of a remote team, I was responsible for the UX design, focusing on consumer-side UX design and the architectural design of tools for merchants regarding the Inventory Management System (IMS). My duties also included user research, discussing the feasibility.
+                </p>
+              </div>
+              
+              {/* 设计过程图 - 放在右列 */}
+              <div className="rounded-xl overflow-hidden">
+                <img 
+                  src={projectImages[1].url} 
+                  alt={projectImages[1].alt}
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </motion.div>
 
-      {/* Project detailed image showcase */}
+      {/* 项目图片展示 - Notion风格的布局 */}
       <div className="container mx-auto px-4 mb-16">
         <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projectImages.slice(2).map((image, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 * (index + 1) }}
-                className="mb-8"
-              >
-                <div className="rounded-xl overflow-hidden mb-4 h-full">
-                  <img 
-                    src={image.url} 
-                    alt={image.alt}
-                    className="w-full h-auto object-contain"
-                    style={{ width: "100%" }}
-                  />
-                </div>
-                <p className="text-center text-gray-700 font-medium">{image.caption}</p>
-              </motion.div>
-            ))}
-          </div>
+          {/* 用户研究 - 全宽 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mb-12"
+          >
+            <div className="rounded-xl overflow-hidden">
+              <img 
+                src={projectImages[2].url} 
+                alt={projectImages[2].alt}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </motion.div>
+
+          {/* 信息架构 - 全宽 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="mb-12"
+          >
+            <div className="rounded-xl overflow-hidden">
+              <img 
+                src={projectImages[3].url} 
+                alt={projectImages[3].alt}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </motion.div>
+
+          {/* 线框图 - 全宽 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="mb-12"
+          >
+            <div className="rounded-xl overflow-hidden">
+              <img 
+                src={projectImages[4].url} 
+                alt={projectImages[4].alt}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </motion.div>
+
+          {/* 高保真原型 - 全宽 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
+            className="mb-12"
+          >
+            <div className="rounded-xl overflow-hidden">
+              <img 
+                src={projectImages[5].url} 
+                alt={projectImages[5].alt}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </motion.div>
+
+          {/* 线下商店 - 全宽 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.0 }}
+            className="mb-12"
+          >
+            <div className="rounded-xl overflow-hidden">
+              <img 
+                src={projectImages[6].url} 
+                alt={projectImages[6].alt}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </motion.div>
+
+          {/* 设计细节和应用截图 - 全宽 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+            className="mb-12"
+          >
+            <div className="rounded-xl overflow-hidden">
+              <img 
+                src={projectImages[7].url} 
+                alt={projectImages[7].alt}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </motion.div>
+
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            className="mb-12"
+          >
+            <div className="rounded-xl overflow-hidden">
+              <img 
+                src={projectImages[8].url} 
+                alt={projectImages[8].alt}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </motion.div>
+
+          {/* 设计系统 - 全宽 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.3 }}
+            className="mb-12"
+          >
+            <div className="rounded-xl overflow-hidden">
+              <img 
+                src={projectImages[9].url} 
+                alt={projectImages[9].alt}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </motion.div>
+
+          {/* 最终呈现 - 全宽 */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+            className="mb-12"
+          >
+            <div className="rounded-xl overflow-hidden">
+              <img 
+                src={projectImages[10].url} 
+                alt={projectImages[10].alt}
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* Conclusion */}
+      {/* 结论 */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
+        transition={{ duration: 0.8, delay: 1.5 }}
         className="container mx-auto px-4 mt-8 mb-16"
       >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900">Project Conclusion</h2>
-          <div className="prose max-w-none">
-            <p className="text-lg text-gray-700">
-              The "Cai Yi" project creates a comprehensive platform for HanFu enthusiasts by integrating social and e-commerce functionalities. From user research to high-fidelity design, each step was centered on the user, resulting in a product that is both aesthetically pleasing and functional. This project not only demonstrates design capability but also reflects a deep understanding of a specific cultural domain and the application of design thinking.
-            </p>
-          </div>
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">Thanks for watching</h2>
+          <p className="text-lg text-gray-700 mb-12">
+            Here are some other projects.
+          </p>
+          
+          {/* Other Projects Section - 内联替换 */}
+          <OtherProjects currentProjectId="caiyi" isDarkMode={false} />
         </div>
       </motion.div>
-
-      {/* Other Projects Section */}
-      <OtherProjects currentProjectId="caiyi" isDarkMode={false} />
     </main>
   );
 } 

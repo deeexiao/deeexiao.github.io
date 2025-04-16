@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import OtherProjects from '@/components/OtherProjects';
+import LoadingScreen from '@/components/LoadingScreen';
 
 const images = [
   {
@@ -29,6 +30,16 @@ const images = [
 
 export default function CookingPage() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate a fast loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800); // Increased to 800ms to make loading more noticeable
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // Auto-advance the carousel every 5 seconds
   useEffect(() => {
@@ -48,123 +59,106 @@ export default function CookingPage() {
 
   return (
     <>
-      {/* Project header */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-        className="container mx-auto px-4 mb-12"
-      >
-        <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">PORTFOLIO ——DI XIAO</h1>
-          <p className="text-xl text-gray-700 mb-8">
-            A collection of my design work and creative endeavors.
-          </p>
-          
-          <div className="flex flex-wrap gap-4 mb-8">
-            <span className="skill-tag bg-gray-200 text-gray-800">Cooking</span>
-            <span className="skill-tag bg-gray-200 text-gray-800">Food Photography</span>
-            <span className="skill-tag bg-gray-200 text-gray-800">Culinary Arts</span>
-          </div>
-          
-          <div className="prose max-w-none">
-            <p className="text-lg text-gray-700">
-              Welcome to my cooking section! Here you can explore my culinary adventures and food creations. I enjoy experimenting with different ingredients and techniques to create delicious meals.
-            </p>
-            <p className="text-lg text-gray-700 mt-4">
-              <span className="text-accent font-medium">Kind reminder:</span> Don't scroll down when you are hungry. 😊
-            </p>
-          </div>
-        </div>
-      </motion.div>
-        
-      {/* Carousel section */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="container mx-auto px-4 mb-16"
-      >
-        <div className="max-w-6xl mx-auto">
-          <div className="relative w-full max-w-5xl mx-auto">
-            {/* Carousel container */}
-            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl shadow-lg bg-white">
-              {images.map((image, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0 }}
-                  animate={{ 
-                    opacity: index === currentIndex ? 1 : 0,
-                    x: `${(index - currentIndex) * 100}%`
-                  }}
-                  transition={{ duration: 0.5 }}
-                  className="absolute inset-0 flex items-center justify-center"
-                >
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="max-w-full max-h-full object-contain"
-                  />
-                </motion.div>
-              ))}
+      {isLoading ? (
+        <LoadingScreen />
+      ) : (
+        <>
+          {/* Project header */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4 mb-12"
+          >
+            <div className="max-w-4xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gray-900">Cooking Diary</h1>
+              
+              <div className="prose max-w-none mb-8">
+                <p className="text-lg text-gray-700">
+                  Welcome to my cooking section! Here you can explore my culinary adventures and food creations. I enjoy experimenting with different ingredients and techniques to create delicious meals.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-4 mb-8">
+                <span className="skill-tag bg-gray-200 text-gray-800">Cooking</span>
+                <span className="skill-tag bg-gray-200 text-gray-800">Food Photography</span>
+                <span className="skill-tag bg-gray-200 text-gray-800">Culinary Arts</span>
+              </div>
             </div>
+          </motion.div>
+            
+          {/* Carousel section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="container mx-auto px-4 mb-16"
+          >
+            <div className="max-w-6xl mx-auto">
+              <div className="relative w-full max-w-5xl mx-auto">
+                {/* Carousel container */}
+                <div className="relative w-full aspect-[4/3] overflow-hidden rounded-xl shadow-lg bg-white">
+                  {images.map((image, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0 }}
+                      animate={{ 
+                        opacity: index === currentIndex ? 1 : 0,
+                        x: `${(index - currentIndex) * 100}%`
+                      }}
+                      transition={{ duration: 0.5 }}
+                      className="absolute inset-0 flex items-center justify-center"
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        className="max-w-full max-h-full object-contain"
+                      />
+                    </motion.div>
+                  ))}
+                </div>
 
-            {/* Navigation buttons */}
-            <button
-              onClick={goToPrevious}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-md transition-all"
-              aria-label="Previous image"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-              </svg>
-            </button>
-            <button
-              onClick={goToNext}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-md transition-all"
-              aria-label="Next image"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-              </svg>
-            </button>
-
-            {/* Indicators */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
-              {images.map((_, index) => (
+                {/* Navigation buttons */}
                 <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index === currentIndex ? 'bg-accent scale-125' : 'bg-gray-400'
-                  }`}
-                  aria-label={`Go to slide ${index + 1}`}
-                />
-              ))}
+                  onClick={goToPrevious}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-md transition-all"
+                  aria-label="Previous image"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                  </svg>
+                </button>
+                <button
+                  onClick={goToNext}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white text-gray-800 rounded-full p-2 shadow-md transition-all"
+                  aria-label="Next image"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                  </svg>
+                </button>
+
+                {/* Indicators */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2">
+                  {images.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentIndex(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        index === currentIndex ? 'bg-accent scale-125' : 'bg-gray-400'
+                      }`}
+                      aria-label={`Go to slide ${index + 1}`}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </motion.div>
+          </motion.div>
 
-      {/* Conclusion */}
-      <motion.div 
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.6 }}
-        className="container mx-auto px-4 mt-8 mb-16"
-      >
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-6 text-gray-900">Cooking Journey Conclusion</h2>
-          <div className="prose max-w-none">
-            <p className="text-lg text-gray-700">
-              Cooking is not just about preparing food; it's a creative process that allows me to express myself and bring joy to others. Through my culinary adventures, I've learned that the best dishes come from a combination of quality ingredients, careful technique, and a lot of love. I hope these images inspire you to explore your own cooking journey!
-            </p>
-          </div>
-        </div>
-      </motion.div>
-
-      {/* Other Projects Section */}
-      <OtherProjects currentProjectId="cooking" isDarkMode={false} />
+          {/* Other Projects Section */}
+          <OtherProjects currentProjectId="cooking" isDarkMode={false} />
+        </>
+      )}
     </>
   );
 }

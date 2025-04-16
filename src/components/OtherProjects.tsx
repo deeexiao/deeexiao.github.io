@@ -44,7 +44,7 @@ export default function OtherProjects({ currentProjectId, isDarkMode = false }: 
   const otherProjects = allProjects.filter(project => project.id !== currentProjectId);
 
   return (
-    <section className={`py-16 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
+    <section className={`py-24 ${isDarkMode ? 'bg-black' : 'bg-white'}`}>
       <div className="container mx-auto px-4">
         <h2 className={`text-3xl font-bold mb-8 ${isDarkMode ? 'text-white' : 'text-gray-900'}`}>Other Projects</h2>
         <div className="flex flex-nowrap gap-6 mb-12 overflow-x-auto pb-4">
@@ -64,7 +64,18 @@ export default function OtherProjects({ currentProjectId, isDarkMode = false }: 
                   <img
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    className={`w-full h-full ${
+                      project.id === 'caiyi' ? 'object-cover scale-100' : 
+                      project.id === 'memory' ? 'object-cover scale-125 -translate-y-6' : 
+                      project.id === 'twins-reborn' ? 'object-cover scale-100' : 'object-cover transition-transform duration-300 group-hover:scale-100'
+                    }`}
+                    style={
+                      project.id === 'caiyi' 
+                        ? { objectPosition: '50% 0%' } 
+                        : project.id === 'memory' 
+                          ? { objectPosition: '50% 25%' } 
+                          : undefined
+                    }
                   />
                   <div className="absolute inset-0 bg-black opacity-30 group-hover:opacity-20 transition-opacity"></div>
                 </div>

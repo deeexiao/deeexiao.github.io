@@ -12,7 +12,7 @@ export default function CookingLayout({
   const backButton = (
     <div className="w-full bg-white py-6 mt-24">
       <div className="container mx-auto px-4">
-        <Link 
+        {/* <Link 
           href="/#projects" 
           className="flex items-center gap-2 text-gray-700 hover:text-gray-900 transition-colors"
         >
@@ -20,7 +20,7 @@ export default function CookingLayout({
             <path d="M19 12H5M12 19l-7-7 7-7"/>
           </svg>
           <span>Back to Portfolio</span>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

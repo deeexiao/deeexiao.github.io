@@ -141,7 +141,27 @@ export default function GlyphNav() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
             >
-              DI<span className="text-accent">.</span>
+              {isHomePage ? (
+                <>DI<span className="text-accent">.</span></>
+              ) : (
+                <div className="flex items-center">
+                  <svg 
+                    width="12" 
+                    height="20" 
+                    viewBox="0 0 12 20"
+                    className="mr-4"
+                    style={{ marginTop: "0px" }}
+                  >
+                    <path 
+                      d="M10 2L2 10L10 18" 
+                      stroke="currentColor" 
+                      strokeWidth="2"
+                      fill="none"
+                    />
+                  </svg>
+                  <span>Back</span>
+                </div>
+              )}
             </motion.div>
           </GitHubPagesLink>
 

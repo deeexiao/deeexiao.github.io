@@ -36,21 +36,17 @@ export default function TwinsRebornProject() {
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-8 text-gray-900">Sketch — Twins & Reborn「双生」</h1>
           
+          {/* Brief description moved above tags */}
+          <p className="text-lg text-gray-700 mb-4">
+            After many years, I picked it up again and recreated it in a new way. It is the "Reborn".
+          </p>
+
           {/* Service tags */}
           <div className="mb-12">
-            <h2 className="text-xl font-semibold mb-4 text-gray-900">Type</h2>
             <div className="flex flex-wrap gap-4">
               <span className="skill-tag bg-gray-200 text-gray-800">Illustration</span>
               <span className="skill-tag bg-gray-200 text-gray-800">Graphic Design</span>
             </div>
-          </div>
-
-          {/* Brief Summary */}
-          <div className="mb-12">
-            <h2 className="text-xl font-semibold mb-4 text-gray-900">Brief Summary</h2>
-            <p className="text-lg text-gray-700">
-              After many years, I picked it up again and recreated it in a new way. It is the "Reborn".
-            </p>
           </div>
         </div>
       </motion.div>
@@ -60,7 +56,7 @@ export default function TwinsRebornProject() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="w-full mb-12"
+        className="w-full mb-24"
       >
         <img 
           src={projectImages[0].url} 
@@ -77,7 +73,7 @@ export default function TwinsRebornProject() {
         transition={{ duration: 0.8, delay: 0.3 }}
         className="container mx-auto px-4 mb-16"
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl ml-0 mr-auto">
           <h2 className="text-2xl md:text-3xl font-bold mb-6 text-gray-900">
             Sketch — Twins & Reborn「双生」
           </h2>
@@ -102,7 +98,7 @@ export default function TwinsRebornProject() {
         transition={{ duration: 0.8, delay: 0.4 }}
         className="container mx-auto px-4 mb-16"
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl ml-0 mr-auto">
           <h2 className="text-2xl font-bold mb-6 text-gray-900">Thanks.</h2>
         </div>
       </motion.div>

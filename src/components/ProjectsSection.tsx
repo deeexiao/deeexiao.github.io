@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import GitHubPagesLink from "./GitHubPagesLink";
+import Link from "next/link";
 import { useState } from 'react';
 import Image from "next/image";
 
@@ -61,6 +61,18 @@ const visualProjects: Project[] = [
     link: '/projects/twins-reborn',
   },
 ];
+
+// 创建一个GitHubPagesLink组件作为Link的封装
+const GitHubPagesLink = ({ href, className, style, children }: { 
+  href: string; 
+  className?: string; 
+  style?: React.CSSProperties; 
+  children: React.ReactNode 
+}) => (
+  <Link href={href} className={className} style={style}>
+    {children}
+  </Link>
+);
 
 export default function ProjectsSection() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -229,15 +241,17 @@ function ProjectCard({ project }: { project: Project }) {
     <motion.div
       whileHover={{ scale: 1.005, boxShadow: '0 0 30px rgba(0,0,0,0.2)' }}
       whileTap={{ scale: 0.995 }}
-      className="relative overflow-hidden rounded-2xl bg-secondary transition-all duration-300 hover:shadow-xl h-full flex flex-col"
+      className="relative overflow-hidden rounded-2xl transition-all duration-300 hover:shadow-xl h-[460px]"
     >
-      <div className="aspect-[16/10] w-full overflow-hidden">
+      {/* 图片区域 */}
+      <div className="absolute top-0 left-0 right-0 h-[281px] overflow-hidden rounded-t-2xl">
         <img
           src={project.imageUrl}
           alt={project.title}
           className={`w-full h-full object-cover ${
-            project.id === 'caiyi' ? 'object-[center_15%]' : 
-            project.id === 'memory' ? 'object-[center_120%]' : 
+            project.id === 'caiyi' ? 'object-[center_10%]' : 
+            project.id === 'memory' ? 'object-[center_60%]' : 
+            project.id === 'daily-collect' ? 'object-[20%_center]' :
             'object-center'
           }`}
         />
@@ -245,19 +259,21 @@ function ProjectCard({ project }: { project: Project }) {
           project.id === 'caiyi' ? 'opacity-35' : 'opacity-20'
         }`}></div>
       </div>
-      <div className="p-5 py-6 flex flex-col flex-grow min-h-[160px] justify-start bg-secondary">
+      
+      {/* 文字区域 */}
+      <div className="absolute bottom-0 left-0 right-0 h-[180px] bg-secondary p-5 py-6 rounded-b-2xl">
         <h3 className="text-xl font-bold mb-2 text-white leading-relaxed">{project.title}</h3>
         <div className="flex flex-wrap gap-2 mb-2">
           {project.tags.map((tag, index) => (
             <span
               key={index}
-              className="px-3 py-1 text-sm rounded-full bg-gray-200/70 text-gray-800"
+              className="px-3 py-1 text-sm rounded-full bg-black/70 text-gray-200"
             >
               {tag}
             </span>
           ))}
         </div>
-        <p className="text-gray-300 line-clamp-2">{project.description}</p>
+        <p className="text-gray-400 line-clamp-2">{project.description}</p>
       </div>
     </motion.div>
   );
