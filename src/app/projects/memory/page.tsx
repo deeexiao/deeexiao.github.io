@@ -20,7 +20,7 @@ export default function MemoryProject() {
   
   const projectImages = [
     {
-      url: "https://deeex.notion.site/image/attachment%3A1869250c-c258-42c7-a235-a824fc24b092%3A1.png?table=block&id=1d6bb0ec-38f2-80d0-a4f7-fa2bbeda64e5&spaceId=77ade17b-07fc-469f-b2dd-d0dd10d59a56&width=2000&userId=&cache=v2",
+      url: "https://images.spr.so/cdn-cgi/imagedelivery/j42No7y-dcokJuNgXeA0ig/cd27f2cd-d966-4c30-922c-2469f075209c/1/w=3840,quality=90,fit=scale-down",
       alt: "Memory Project Cover",
       caption: "Memory Project Cover Image"
     },
