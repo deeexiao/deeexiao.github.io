@@ -15,7 +15,7 @@ const education: Education[] = [
     id: "eindhoven",
     institution: "Eindhoven University of Technology — Researcher",
     degree: "Support Design-based learning for teacher",
-    period: "Nov 2018 - Now"
+    period: "Nov 2018 - Nov 2024"
   },
   {
     id: "denmark",

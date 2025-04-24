@@ -94,7 +94,7 @@ export default function ProjectsSection() {
       id: "memoon",
       title: "Freelancer at MEMOON",
       role: "Founder & Part-time Teacher (Problem-based learning)",
-      period: "Apr 2023 - Jan 2024"
+      period: "Nov 2023 - Now"
     },
     {
       id: "hanfu",
